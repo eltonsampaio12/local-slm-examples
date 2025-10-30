@@ -19,6 +19,7 @@ class LocalLLM:
         self,
         prompt: str,
         max_length: int = 64,
+        max_new_tokens: int | None = None,
         num_beams: int = 4,
         early_stopping: bool = True,
     ) -> str:

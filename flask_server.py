@@ -10,7 +10,12 @@ llm = LocalLLM()
 @app.route("/generate", methods=["POST"])
 def generate():
     data = request.get_json(silent=True) or {}
-    prompt = data.get("prompt", "").strip()
+    user_prompt = data.get("prompt", "").strip()
+    system_prompt = data.get("system", "").strip()
+    if system_prompt:
+        prompt = f"System: {system_prompt}\n\nUser: {user_prompt}\n\nAssistant:"
+    else:
+        prompt = user_prompt
     if not prompt:
         return jsonify({"error": "Missing 'prompt' in JSON body"}), 400
 

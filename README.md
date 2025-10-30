@@ -37,6 +37,16 @@ curl -X POST http://localhost:8000/generate \
   -d '{"prompt": "Say hello in one sentence."}'
 ```
 
+Send a request with a system prompt:
+```bash
+curl -X POST http://localhost:8000/generate \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "system": "You are a concise assistant. Reply with one word.",
+        "prompt": "Provide a positive greeting"
+      }'
+```
+
 ## Optional: Use LocalLLM directly (Python)
 ```python
 from local_llm import LocalLLM
