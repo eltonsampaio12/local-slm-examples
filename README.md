@@ -47,6 +47,14 @@ curl -X POST http://localhost:8000/generate \
       }'
 ```
 
+### Swagger (OpenAPI) docs
+
+After starting the server, open:
+
+`http://localhost:8000/apidocs`
+
+There you can explore and try the `/generate` endpoint interactively.
+
 ## Optional: Use LocalLLM directly (Python)
 ```python
 from local_llm import LocalLLM
